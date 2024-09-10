@@ -114,12 +114,3 @@ public class EventsController : ControllerBase
     }
 }
 ```
-
-## Testing and Extending
-
-- You can extend the library with additional methods for working with date and time as needed.
-- The library is designed to be easily extendable and can be used in various projects that need to handle date-time data without **DateTimeOffset** support.
-
-## Contributing
-
-If you'd like to contribute to the library, feel free to create a **pull request** or open an **issue** on the GitHub repository.
