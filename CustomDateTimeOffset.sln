@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomDateTimeOffset", "CustomDateTimeOffset\CustomDateTimeOffset.csproj", "{78CF71B5-C93E-43A4-93E7-ABAAFBD0B64F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{78CF71B5-C93E-43A4-93E7-ABAAFBD0B64F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78CF71B5-C93E-43A4-93E7-ABAAFBD0B64F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78CF71B5-C93E-43A4-93E7-ABAAFBD0B64F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78CF71B5-C93E-43A4-93E7-ABAAFBD0B64F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {34845864-820B-4251-A85A-A831B31D5727}
+	EndGlobalSection
+EndGlobal
