@@ -44,7 +44,8 @@
         /// <returns>A <see cref="DateTimeOffset"/> representing the same date, time, and offset.</returns>
         public DateTimeOffset ToDateTimeOffset()
         {
-            return new DateTimeOffset(DateTime, TimeSpan.FromMinutes(Offset));
+            string dateTimeString = this.DateTime.ToString("yyyy-MM-ddTHH:mm:ss.fffffff");
+            return new DateTimeOffset(DateTime.Parse(dateTimeString), TimeSpan.FromMinutes(Offset)); 
         }
 
         /// <summary>
@@ -54,7 +55,7 @@
         /// <returns>A new <see cref="CustomDateTime"/> instance with the same date, time, and offset.</returns>
         public static CustomDateTime FromDateTimeOffset(DateTimeOffset dateTimeOffset)
         {
-            return new CustomDateTime(dateTimeOffset.DateTime.ToUniversalTime(), (short)dateTimeOffset.Offset.TotalMinutes);
+            return new CustomDateTime(dateTimeOffset.DateTime, (short)dateTimeOffset.Offset.TotalMinutes);
         }
 
         /// <summary>
