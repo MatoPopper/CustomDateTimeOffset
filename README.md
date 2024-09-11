@@ -114,3 +114,42 @@ public class EventsController : ControllerBase
     }
 }
 ```
+
+### 5. PostgreSQL Configuration
+
+When using **PostgreSQL** as your database and you want to ensure correct handling of `CustomDateTime`, you need to apply a custom configuration that maps the **CustomDateTime** class properties (`DateTime` and `Offset`) to individual columns in the database.
+
+To do this, you can use the provided `ApplyCustomDateTimeConfiguration` method in the `OnModelCreating` method of your `DbContext`. This will ensure that both the `DateTime` and `Offset` are properly stored in the database, even though PostgreSQL doesn't support `DateTimeOffset` natively.
+
+Here is how you can apply the configuration in your `DbContext`:
+
+```csharp
+using Microsoft.EntityFrameworkCore;
+using Core.Models.Shared; // Namespace where CustomDateTime is located
+
+public class ApplicationDbContext : DbContext
+{
+    public DbSet<Event> Events { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        // Apply custom configuration for CustomDateTime
+        modelBuilder.ApplyCustomDateTimeConfiguration();
+
+        base.OnModelCreating(modelBuilder);
+    }
+}
+```
+
+This will automatically configure **CustomDateTime** properties to be stored in PostgreSQL as two separate fields: one for the `DateTime` and one for the `Offset`.
+
+#### Example PostgreSQL Table:
+When this configuration is applied, the table for the `Event` model might look like this:
+
+| Id  | ValidFromDateTime         | ValidFromOffset |
+| --- | ------------------------- | --------------- |
+| 1   | 2024-09-10 14:30:00.000000 | 120             |
+
+Where:
+- `ValidFromDateTime` represents the **DateTime** part.
+- `ValidFromOffset` stores the offset from UTC (in minutes).
